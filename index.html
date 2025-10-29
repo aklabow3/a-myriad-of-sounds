@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Myriad of Sounds</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: "Helvetica Neue", sans-serif;
+      color: white;
+      text-align: center;
+      background: url("forest_bg.jpg") no-repeat center center fixed;
+      background-size: cover;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    h1 {
+      font-size: 2.4em;
+      margin-bottom: 0.3em;
+      text-shadow: 0 0 12px rgba(0,0,0,0.6);
+    }
+
+    p {
+      margin-top: 0;
+      font-size: 1.2em;
+      font-style: italic;
+      color: #ddd;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    .controls {
+      margin-top: 1.5em;
+    }
+
+    button {
+      margin: 0 10px;
+      padding: 12px 32px;
+      font-size: 1.1em;
+      background: rgba(255,255,255,0.2);
+      border: 2px solid white;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: white;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1>A Myriad of Sounds</h1>
+  <p>Song inspired by the poem and painting</p>
+
+  <div class="controls">
+    <button id="playBtn">▶ Play</button>
+    <button id="stopBtn">⏹ Stop</button>
+  </div>
+
+  <audio id="player" src="A_myriad_of_sounds.mp3"></audio>
+
+  <script>
+    const player = document.getElementById('player');
+    document.getElementById('playBtn').onclick = () => player.play();
+    document.getElementById('stopBtn').onclick = () => {
+      player.pause();
+      player.currentTime = 0;
+    };
+  </script>
+</body>
+</html>
